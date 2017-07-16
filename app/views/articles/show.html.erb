@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+ <h1>Fiche article</h1>
+<p>
+  <strong>Ce superbe article s'appelle :</strong>
+  <%= @article.name %>
+</p>
+
+<p>
+  <strong>Dedans on peut comprendre que :</strong>
+  <%= @article.content %>
+</p>
+
+<p>
+  <strong>Il a été rédigé par :</strong>
+  <%= @article.user.username %>
+</p>
+
+<p>Ajouter un commentaire ! <br/> Aie ça aurait été cool mais ça ne marche plus</p>
+
+
+
+<%= link_to 'Edit', edit_article_path(@article) %> |
+<%= link_to 'Back', articles_path %>

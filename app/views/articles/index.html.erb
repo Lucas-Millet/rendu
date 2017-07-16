@@ -1,0 +1,38 @@
+
+
+<h1>Voici les "articles" riche en sens et en émotions</h1>
+<% if user_signed_in?  %>
+<p> Accèdes à tout tes articles par le bias de ce lien <%= link_to 'mes articles', me_articles_path %> </p>
+<% end %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nom du super article</th>
+      <th>Auteur</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @articles.each do |article| %>
+      <tr>
+        <td><%= article.name %></td>
+        
+        <td><%= article.user.username %></td>
+        <td><%= link_to 'La fiche article', article %></td>
+        <td><%= link_to "Edition de l'article", edit_article_path(article) %></td>
+        <td><%= link_to "Supprimer l'article", article, method: :delete, data: { confirm: "Es-tu sûr de ton coup ? Le back-up de donnée n'est pas encore pris en charge"} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<% if user_signed_in?  %>
+<%= link_to 'Je veux impressionner le monde par ma plume', new_article_path %>
+<br/>
+<%= link_to 'Je me déconnecte', destroy_user_session_path, method: :delete %>
+<% else %>
+<div> Tu peux toujours te connecter en cliquant <%= link_to 'ici', new_user_session_path %>
+<%end %>

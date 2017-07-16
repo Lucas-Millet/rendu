@@ -1,0 +1,17 @@
+<div class="container">
+
+<% if user_signed_in? %>
+<h1>Bienvenue <%= current_user.username %> sur mon appli bidon !</h1>
+tu as deux choix :
+<ul>
+<li> Premièrement tu peux
+<%= link_to 'Voir les articles', articles_path %> </li>
+<li> Ou bien tu peux aussi te
+<%= link_to 'déconnecter', destroy_user_session_path, method: :delete %>, ça ne sert à rien pour le moment mais tu peux le faire
+</li>
+</ul>
+	
+<%else %>
+<h1>Salutation inconnu ! </h1> pour profiter pleinement du site(et il n'y a pas grand chose... ) je te conseille de te 
+<%= link_to 'connecter', new_user_session_path %> ! Sinon tu peux aussi <%= link_to 'voir les articles', articles_path %> mais tu ne pourras que lire les articles déjà présent :x !
+<%end%>

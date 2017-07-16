@@ -1,0 +1,15 @@
+<p>
+  <strong>Titre :</strong>
+  <%= commentaire.titre %>
+</p>
+ 
+<p>
+  <strong>Texte :</strong>
+  <%= commentaire.content %>
+</p>
+
+<p>
+  <%= link_to 'Supprimer le commentaire', [commentaire.article, commentaire],
+               method: :delete,
+               data: { confirm: 'Es tu sûr ?' } %>
+</p>
